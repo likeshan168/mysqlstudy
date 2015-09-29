@@ -30,3 +30,31 @@ CREATE TABLE project
   of_dpt     CHAR(20) REFERENCES department(dpt_name),
   CONSTRAINT proj_pk PRIMARY KEY (proj_num,proj_name)
  );
+
+--the above sql statements can aslo be applied to sql server
+
+--modify the table name in mysql
+alter table employee rename employee_new;
+alter table employee rename to employee_new;
+
+--sql server
+exec sp_rename 'employee','employee_new'
+
+--add a column in mysql
+alter table employee add height int(10) default 120;
+alter table employee add height int(10) default 120 after name;--add a column after column name
+alter table employee add height int(10) default 120 first;--add a column as the first column
+--add a column in sql server
+alter table employee add height int default 120;--we can't give a poisition for the new column which will be add at the last poisition
+
+--delete a column in mysql
+alter table employee drop column height;
+alter table employee drop height;
+--delete a column in sql server
+alter table employee drop constraint DF_employee1__height__123321313;
+alter table employee drop column height;
+
+
+
+
+
